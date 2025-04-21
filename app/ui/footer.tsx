@@ -9,7 +9,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <InnerContainer className="border-t-1 border-zinc-700/60">
+    <InnerContainer className="mt-32 border-t-1 border-zinc-700/60">
       <footer className="flex flex-col gap-5 sm:flex-row items-center text-center sm:text-start pt-10 pb-16">
         <ul className="flex flex-auto gap-6 text-sm">
           {
