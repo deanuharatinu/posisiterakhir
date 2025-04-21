@@ -29,14 +29,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} antialiased relative flex flex-col min-h-screen`}>
-        <OuterContainer className="fixed inset-0 -z-10">
-          <div className="border-l-1 border-r-1 border-zinc-700/60 w-full dark:bg-zinc-900 dark:ring-zinc-300/20" />
-        </OuterContainer>
-        <Header className="pt-6" />
-        <Content>
-          {children}
-        </Content>
-        <Footer />
+        <main>
+          <OuterContainer className="fixed inset-0 -z-10">
+            <div className="border-l-1 border-r-1 border-zinc-700 w-full bg-zinc-900 " />
+          </OuterContainer>
+          <Header className="pt-6" />
+          <Content>
+            {children}
+          </Content>
+          <Footer />
+        </main>
       </body>
     </html >
   );
@@ -44,7 +46,7 @@ export default function RootLayout({
 
 function Content({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="flex-1 mt-16 sm:mt-32">
+    <div className="flex-1 pt-16 sm:pt-32">
       <InnerContainer >
         {children}
       </InnerContainer>
