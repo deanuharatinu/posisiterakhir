@@ -27,14 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} antialiased`}>
-        <OuterContainer>
-          <div className="w-full dark:bg-zinc-900 dark:ring-zinc-300/20" />
+      <body className={`${roboto.className} antialiased relative`}>
+        <OuterContainer className="fixed inset-0 -z-10">
+          <div className="border-l-1 border-r-1 border-zinc-700/60 w-full dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </OuterContainer>
 
         <div>
           <InnerContainer>
-            <NavBar className="pt-6"/>
+            <NavBar className="pt-6" />
           </InnerContainer>
 
           <footer>

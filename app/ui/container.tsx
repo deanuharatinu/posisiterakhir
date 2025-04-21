@@ -1,12 +1,10 @@
 function OuterContainer({ className = '', children }: Readonly<{ className?: string, children: React.ReactNode }>) {
   return (
-    <div className={`${className}`} >
-      <div className="fixed inset-0 flex justify-center sm:px-8">
-        <div className="flex w-full max-w-7xl lg:px-8 justify-center">
-          {children}
-        </div>
+    <div className={`flex justify-center sm:px-8 ${className}`}>
+      <div className="flex w-full max-w-7xl lg:px-8 justify-center">
+        {children}
       </div>
-    </div >
+    </div>
   );
 }
 
