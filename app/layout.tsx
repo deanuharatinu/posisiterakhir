@@ -32,15 +32,22 @@ export default function RootLayout({
         <OuterContainer className="fixed inset-0 -z-10">
           <div className="border-l-1 border-r-1 border-zinc-700/60 w-full dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </OuterContainer>
-
         <Header className="pt-6" />
-
-        <div className="flex-1">
-          Content
-        </div>
-
+        <Content>
+          {children}
+        </Content>
         <Footer />
       </body>
     </html >
   );
+}
+
+function Content({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <div className="flex-1 mt-16 sm:mt-32">
+      <InnerContainer >
+        {children}
+      </InnerContainer>
+    </div>
+  )
 }
