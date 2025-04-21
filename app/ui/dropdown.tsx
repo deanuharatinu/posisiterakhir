@@ -22,6 +22,22 @@ export default function DropdownMenu({ menus }: Readonly<{ menus: { name: string
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
   return (
     <div ref={dropdownRef}>
       <div className="mx-4">
