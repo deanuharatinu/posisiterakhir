@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { roboto } from "./ui/fonts";
+import NavBar from "./ui/navbar";
+import { InnerContainer, OuterContainer } from "./ui/container";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +27,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${roboto.className} antialiased`}>
+        <OuterContainer>
+          <div className="w-full dark:bg-zinc-900 dark:ring-zinc-300/20" />
+        </OuterContainer>
+
+        <div>
+          <InnerContainer>
+            <NavBar className="pt-6"/>
+          </InnerContainer>
+
+          <footer>
+
+          </footer>
+        </div>
       </body>
-    </html>
+    </html >
   );
 }
