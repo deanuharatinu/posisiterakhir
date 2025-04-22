@@ -1,4 +1,7 @@
-import Article from "../ui/article";
+import Article from "./article";
+
+// import data
+import articles from "../data/articles.json" assert { type: 'json' };
 
 export default function Page() {
   return (
@@ -10,12 +13,25 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-10 mt-16">
-        <Article />
-        <Article />
-        <Article />
-        <Article />
-      </div>
+      {
+        articles.articles &&
+        <div className="mt-16">
+          <Articles articles={articles.articles} />
+        </div>
+      }
+
     </div >
   );
+}
+
+function Articles({ articles }: Readonly<{ articles?: { titles?: string, dateMillis?: string, content?: string, slug?: string }[] }>) {
+  const isNotEmpty = (articles?.length ?? 0) > 0;
+
+  return isNotEmpty ? (
+    <div className="flex flex-col gap-10">
+      {articles?.map((article, index) => (
+        <Article key={`${article.titles}-${index}`} article={article} />
+      ))}
+    </div>
+  ) : <></>;
 }
