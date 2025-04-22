@@ -46,7 +46,7 @@ export default function RootLayout({
 
 function Content({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="flex-1 pt-16 sm:pt-32">
+    <div className="flex-1 pt-32">
       <InnerContainer >
         {children}
       </InnerContainer>
