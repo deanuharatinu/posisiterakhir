@@ -57,7 +57,7 @@ export default function DropdownMenu({ menus }: Readonly<{ menus: { name: string
       </div>
 
       <div
-        className={`absolute left-4 right-4 mt-4 rounded-xl bg-zinc-800 shadow-lg ring-1 ring-black/5 focus:outline-none transition ease-out duration-100 transform
+        className={`absolute z-1 left-4 right-4 mt-4 rounded-xl bg-zinc-800 shadow-lg ring-1 ring-black/5 focus:outline-none transition ease-out duration-100 transform
            ${isOpen
             ? "opacity-100 scale-100"
             : "opacity-0 scale-95 pointer-events-none"
