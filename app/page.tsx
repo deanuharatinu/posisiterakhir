@@ -2,8 +2,8 @@ export default function Home() {
   return (
     <div className="relative flex flex-col">
       <img className="absolute -top-16 left w-[64px]" src="../favicon.ico" alt="profile" />
-      <h1 className="mt-6 text-5xl/tight font-bold">Software engineer, founder, and designer.</h1>
-      <p className="mt-6 text-base/relaxed text-zinc-400">
+      <h1 className="mt-6 text-3xl/tight sm:text-5xl/tight font-bold max-w-3xl">Software engineer, founder, and designer.</h1>
+      <p className="mt-6 text-base/relaxed text-zinc-400 max-w-2xl">
         I’m Austin, a software engineer and entrepreneur based in Utah. I’m the technical co-founder of Event Penguin, where we are making the best registration tool for small to medium sized events. I’m also currently looking for work so I’d love to connect with you!
       </p>
       <div className="flex flex-row gap-6">
