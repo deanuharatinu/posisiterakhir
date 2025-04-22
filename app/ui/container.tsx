@@ -12,7 +12,7 @@ function InnerContainer({ className = '', children }: Readonly<{ className?: str
   return (
     <OuterContainer>
       <div className={`w-full flex justify-center ${className}`}>
-        <div className="w-full mx-4 max-w-2xl sm:mx-7.5 lg:max-w-5xl">
+        <div className="w-full mx-4 max-w-2xl sm:mx-7.5 md:mx-12 lg:max-w-5xl">
           {children}
         </div>
       </div>
