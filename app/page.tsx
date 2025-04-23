@@ -9,7 +9,9 @@ export default function Home() {
   return (
     <div className="relative flex flex-col">
       <section>
-        <img className="absolute -top-16 left w-[64px]" src="../favicon.ico" alt="profile" />
+        <img
+          className="absolute -top-16 left w-[64px] aspect-square rounded-2xl object-cover"
+          src="/deanu-profile-rounded.webp" alt="profile" />
         <h1 className="mt-6 text-3xl/tight sm:text-5xl/tight font-bold max-w-3xl">Posisi Terakhir - A final place for endless thoughts.</h1>
         <p className="mt-6 text-base/relaxed text-zinc-400 max-w-2xl">
           I’m Deanu, a mobile app and backend developer based in Jakarta, Indonesia.

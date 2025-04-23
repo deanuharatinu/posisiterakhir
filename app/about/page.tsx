@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Page() {
   return <div className="grid lg:grid-cols-2 lg:grid-rows-[auto_1fr] gap-x-4 gap-y-2 items-start mx-2">
     <Image
-      src={`/portrait.webp`}
+      src={`/deanu-profile.webp`}
       alt=""
-      className="w-70 lg:w-[clamp(20rem,30vw,26rem)] ml-2 aspect-square rotate-3 rounded-2xl object-cover grayscale lg:col-start-2 lg:ml-22"
+      className="w-70 lg:w-[clamp(20rem,30vw,26rem)] ml-2 aspect-square rotate-3 rounded-2xl object-cover lg:col-start-2 lg:ml-22"
       width={3024}
       height={4032} />
 
