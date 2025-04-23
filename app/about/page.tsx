@@ -48,7 +48,7 @@ export default function Page() {
       <ul className="space-y-4">
         <li className="flex">
           <a target="_blank"
-            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-cyan-500 dark:text-zinc-200 dark:hover:text-cyan-500"
+            className="group flex items-center text-sm font-medium transition text-zinc-200 hover:text-cyan-500"
             href="https://github.com/deanuharatinu">
             <svg
               viewBox="0 0 24 24"
@@ -63,7 +63,7 @@ export default function Page() {
         <li className="flex">
           <a
             target="_blank"
-            className="group flex text-sm items-center font-medium text-zinc-800 transition hover:text-cyan-500 dark:text-zinc-200 dark:hover:text-cyan-500"
+            className="group flex text-sm items-center font-medium transition text-zinc-200 hover:text-cyan-500"
             href="https://www.linkedin.com/in/deanu-haratinu/">
             <svg
               viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ export default function Page() {
         <li className="flex">
           <a
             target="_self"
-            className="group flex text-sm items-center font-medium text-zinc-800 transition hover:text-cyan-500 dark:text-zinc-200 dark:hover:text-cyan-500"
+            className="group flex text-sm items-center font-medium transition text-zinc-200 hover:text-cyan-500"
             href="mailto:deanuharatinutuu@gmail.com">
             <svg
               viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ export default function Page() {
               <path fillRule="evenodd" d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z">
               </path>
             </svg>
-            <span className="ml-4">deanuharatinutuu@gmail.com</span>
+            <span className="ml-4">deanuuharatinutuu@gmail.com</span>
           </a>
         </li>
       </ul>
