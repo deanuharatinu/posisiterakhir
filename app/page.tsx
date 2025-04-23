@@ -10,9 +10,11 @@ export default function Home() {
     <div className="relative flex flex-col">
       <section>
         <img className="absolute -top-16 left w-[64px]" src="../favicon.ico" alt="profile" />
-        <h1 className="mt-6 text-3xl/tight sm:text-5xl/tight font-bold max-w-3xl">Software engineer, founder, and designer.</h1>
+        <h1 className="mt-6 text-3xl/tight sm:text-5xl/tight font-bold max-w-3xl">Posisi Terakhir - A final place for endless thoughts.</h1>
         <p className="mt-6 text-base/relaxed text-zinc-400 max-w-2xl">
-          I’m Austin, a software engineer and entrepreneur based in Utah. I’m the technical co-founder of Event Penguin, where we are making the best registration tool for small to medium sized events. I’m also currently looking for work so I’d love to connect with you!
+          I’m Deanu, a mobile app and backend developer based in Jakarta, Indonesia.
+          This is my personal site, a space to showcase my work and capture my thoughts and explorations.
+          Feel free to browse my articles and connect with me anytime.
         </p>
         <div className="flex flex-row gap-6 my-5">
           <a
