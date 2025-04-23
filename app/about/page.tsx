@@ -11,7 +11,7 @@ export default function Page() {
 
     <section className="mt-12 lg:mt-0 lg:order-first lg:row-span-2">
       <h1 className="text-3xl font-bold sm:text-5xl">
-        Hi, I'm Austin Karren.
+        Hi, I'm Deanu Haratinu.
       </h1>
       <div className="mt-10 text-base/relaxed text-zinc-400">
         <p>
@@ -79,7 +79,7 @@ export default function Page() {
           <a
             target="_self"
             className="group flex text-sm items-center font-medium text-zinc-800 transition hover:text-cyan-500 dark:text-zinc-200 dark:hover:text-cyan-500"
-            href="mailto:deanuuharatinutuu@gmail.com">
+            href="mailto:deanuharatinutuu@gmail.com">
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -88,7 +88,7 @@ export default function Page() {
               <path fillRule="evenodd" d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z">
               </path>
             </svg>
-            <span className="ml-4">deanuuharatinutuu@gmail.com</span>
+            <span className="ml-4">deanuharatinutuu@gmail.com</span>
           </a>
         </li>
       </ul>
