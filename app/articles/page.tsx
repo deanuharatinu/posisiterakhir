@@ -9,8 +9,11 @@ export default function Page() {
       <div className="flex flex-col lg:max-w-2xl">
         <h1 className="text-5xl/tight font-bold tracking-tight">Writing about software development, personal thoughts, and life in general.</h1>
         <p className="text-zinc-400 mt-8">
-          I've had so many thoughts and reflections that slipped into the void, unnoticed. 
+          I've had so many thoughts and reflections that slipped into the void, unnoticed.
           This time, I'm commited to writing them down. Whether someone finds them useful or not, I just need to put them into words — to settle my own mind.
+          <br />
+          <br />
+          <span className="text-xs">*ps: this page is still on development. expect a fake article :p</span>
         </p>
       </div>
 
