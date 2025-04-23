@@ -11,4 +11,12 @@ function formatMillisToDate(millis?: string): string {
   });
 }
 
-export { formatMillisToDate };
+function getTechStackIconPath(techStack?: string): string {
+  if (techStack == undefined) {
+    return ""
+  }
+
+  return `/techstack-icons/${techStack?.toLowerCase()}.svg`
+}
+
+export { formatMillisToDate, getTechStackIconPath };
