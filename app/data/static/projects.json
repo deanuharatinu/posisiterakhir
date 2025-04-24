@@ -34,7 +34,8 @@
       "title": "Comuline Mobile App",
       "date": "2024",
       "description": "Personal project for making a mobile app using free public API of comuline, an API to fetch all trains (KRL) schedule.",
-      "techStack": ["flutter", "swift", "kotlin", "git"]
+      "techStack": ["flutter", "swift", "kotlin", "git"],
+      "link": "https://github.com/deanuharatinu/comuline-flutter"
     },
     {
       "title": "Appsflyer & Adobe Analytics on Mobile App",
