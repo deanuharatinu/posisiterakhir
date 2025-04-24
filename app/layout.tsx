@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { roboto } from "./ui/fonts";
-import Header from "./ui/Header";
 import { InnerContainer, OuterContainer } from "./ui/Container";
+import Header from "./ui/Header";
 import Footer from "./ui/Footer";
 
 export const metadata: Metadata = {
