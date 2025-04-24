@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { roboto } from "./ui/fonts";
-import { InnerContainer, OuterContainer } from "./ui/Container";
 import Header from "./ui/Header";
 import Footer from "./ui/Footer";
+import { InnerContainer, OuterContainer } from "./ui/container";
 
 export const metadata: Metadata = {
   title: "Posisi Terakhir - Deanu Haratinu's Personal Website",

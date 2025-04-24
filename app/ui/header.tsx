@@ -3,8 +3,8 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { InnerContainer } from "./Container";
 import DropdownMenu from "./DropdownMenu";
+import { InnerContainer } from "./container";
 
 // import data
 import { menus } from "../data/static/menus";
