@@ -12,7 +12,10 @@ export default function Home() {
       <section>
         <Image
           className="absolute -top-16 left w-[64px] aspect-square rounded-2xl object-cover"
-          src="/deanu-profile-rounded.webp" alt="profile" />
+          src="/deanu-profile-rounded.webp" alt="profile"
+          width={64}
+          height={64}
+        />
         <h1 className="mt-6 text-3xl/tight sm:text-5xl/tight font-bold max-w-3xl">Posisi Terakhir - A final place for endless thoughts.</h1>
         <p className="mt-6 text-base/relaxed text-zinc-400 max-w-2xl">
           I&apos;m Deanu, a mobile app and backend developer based in Jakarta, Indonesia.

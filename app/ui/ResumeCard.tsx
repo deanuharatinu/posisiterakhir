@@ -1,4 +1,13 @@
+'use client'
+
+import { supabase } from "../utils/supabaseClient";
+
 export default function ResumeCard({ resumeData }: Readonly<{ resumeData?: { company?: string, role?: string, year?: string }[] }>) {
+  function downloadResume() {
+    const { data } = supabase.storage.from('external-bucket-posisiterakhir/resume').getPublicUrl('resume-deanu-haratinu.pdf?download');
+    window.open(`${data.publicUrl}`, '_blank', 'noopener,noreferrer');
+  }
+
   return (
     <div className="flex flex-col border-1 border-zinc-700/40 rounded-xl p-6">
       <div className="flex flex-row gap-3 items-center">
@@ -30,7 +39,11 @@ export default function ResumeCard({ resumeData }: Readonly<{ resumeData?: { com
         </div>
       }
 
-      <button className="group text-sm bg-zinc-800/50 py-3 mt-6 rounded-lg cursor-pointer hover:bg-zinc-800 transition duration-100 inline-flex items-center justify-center gap-2">
+      <button
+        type="button"
+        className="group text-sm bg-zinc-800/50 py-3 mt-6 rounded-lg cursor-pointer hover:bg-zinc-800 transition duration-100 inline-flex items-center justify-center gap-2"
+        onClick={downloadResume}
+      >
         Download Resume <span>
           <svg
             viewBox="0 0 16 16"
