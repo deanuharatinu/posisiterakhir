@@ -1,6 +1,12 @@
 // import data
-import projects from '../data/projects.json' assert { type: 'json' };
+import { Metadata } from 'next';
+import projects from '../data/static/projects.json' assert { type: 'json' };
 import ProjectShowcase from './ProjectShowCase';
+
+export const metadata: Metadata = {
+  title: "Projects - Deanu Haratinu's Personal Website",
+  description: "A mix of jobs, gigs, and passion projects."
+}
 
 export default function Page() {
   return (

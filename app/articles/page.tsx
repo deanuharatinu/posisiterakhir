@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
 // import data
-import articles from "../data/articles.json" assert { type: 'json' };
+import articles from "../data/static/articles.json" assert { type: 'json' };
 import Articles from "./Articles";
 
 export const metadata: Metadata = {
-  title: "About - Deanu Haratinu's Personal Website",
-  description: "Hi, I'm Deanu Haratinu"
+  title: "Articles - Deanu Haratinu's Personal Website",
+  description: "Writing about software development, personal thoughts, and life in general."
 }
 
 export default function Page() {
