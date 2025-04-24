@@ -1,7 +1,6 @@
-import ProjectCard from "../ui/project-card";
-
 // import data
 import projects from '../data/projects.json' assert { type: 'json' };
+import ProjectShowcase from './ProjectShowCase';
 
 export default function Page() {
   return (
@@ -21,21 +20,7 @@ export default function Page() {
         </div>
       </div>
 
-      <ProjectShowcase className="mt-24" />
+      <ProjectShowcase className="mt-24" projects={projects.projects} />
     </div >
-  );
-}
-
-function ProjectShowcase({ className = '' }: Readonly<{ className?: string }>) {
-  return (
-    <section className={`${className} flex flex-col gap-14 sm:grid sm:grid-cols-[repeat(auto-fit,_minmax(200,_max-content))]`}>
-      {
-        projects.projects?.map((project, index) => {
-          return (
-            <ProjectCard key={`${project.title} + ${index}`} project={project} />
-          );
-        })
-      }
-    </section>
   );
 }

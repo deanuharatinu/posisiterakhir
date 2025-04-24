@@ -1,6 +1,18 @@
 import { formatMillisToDate } from "../utils/utils";
 
-export default function Article({ article }: Readonly<{ article: { title?: string, dateMillis?: string, content?: string, slug?: string } }>) {
+export default function HomePageArticles({ articles }: Readonly<{ articles?: { titles?: string, dateMillis?: string, content?: string, slug?: string }[] }>) {
+  const isNotEmpty = (articles?.length ?? 0) > 0;
+
+  return isNotEmpty ? (
+    <div className="flex flex-col gap-8">
+      {articles?.map((article, index) => (
+        <Article key={`${article.titles}-${index}`} article={article} />
+      ))}
+    </div>
+  ) : <></>;
+}
+
+function Article({ article }: Readonly<{ article: { title?: string, dateMillis?: string, content?: string, slug?: string } }>) {
   return (
     <article>
       <div className="md:col-span-3 group relative flex flex-col">

@@ -3,9 +3,8 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { InnerContainer } from "./container";
-import DropdownMenu from "./dropdown";
-import path from "path";
+import { InnerContainer } from "./Container";
+import DropdownMenu from "./DropdownMenu";
 
 const links = [
   { name: "Home", href: "/" },

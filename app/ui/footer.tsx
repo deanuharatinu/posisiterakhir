@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { InnerContainer } from "./container";
+import { InnerContainer } from "./Container";
 
 const links = [
   { name: "About", href: "/about" },

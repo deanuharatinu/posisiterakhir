@@ -1,5 +1,5 @@
-import Article from "./ui/home-article";
-import ResumeCard from "./ui/resume-card";
+import ResumeCard from "./ui/ResumeCard";
+import HomePageArticles from "./ui/HomePageArticles";
 
 // import data
 import resume from "./data/resume.json" assert { type: 'json' };
@@ -52,7 +52,6 @@ export default function Home() {
           <h2 className="text-2xl font-bold">
             Articles
           </h2>
-
           {
             articles.articles &&
             <div className="mt-8">
@@ -67,16 +66,3 @@ export default function Home() {
     </div>
   );
 }
-
-function HomePageArticles({ articles }: Readonly<{ articles?: { titles?: string, dateMillis?: string, content?: string, slug?: string }[] }>) {
-  const isNotEmpty = (articles?.length ?? 0) > 0;
-
-  return isNotEmpty ? (
-    <div className="flex flex-col gap-8">
-      {articles?.map((article, index) => (
-        <Article key={`${article.titles}-${index}`} article={article} />
-      ))}
-    </div>
-  ) : <></>;
-}
-
