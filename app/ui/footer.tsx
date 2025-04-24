@@ -1,11 +1,8 @@
 import Link from "next/link";
 import { InnerContainer } from "./Container";
 
-const links = [
-  { name: "About", href: "/about" },
-  { name: "Articles", href: "/articles" },
-  { name: "Projects", href: "/projects" },
-]
+// import data
+import { menus } from "../data/static/menus";
 
 export default function Footer() {
   return (
@@ -13,7 +10,7 @@ export default function Footer() {
       <footer className="flex flex-col gap-5 sm:flex-row items-center text-center sm:text-start pt-10 pb-16">
         <ul className="flex flex-auto gap-6 text-sm">
           {
-            links.map((link) => (
+            menus.map((link) => (
               <li key={link.name}>
                 <Link
                   className="relative py-2 transition duration-300 hover:text-cyan-500"

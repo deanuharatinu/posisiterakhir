@@ -6,12 +6,8 @@ import { usePathname } from "next/navigation";
 import { InnerContainer } from "./Container";
 import DropdownMenu from "./DropdownMenu";
 
-const links = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Articles", href: "/articles" },
-  { name: "Projects", href: "/projects" },
-]
+// import data
+import { menus } from "../data/static/menus";
 
 export default function Header({ className = '' }: Readonly<{ className?: string }>) {
   const pathname = usePathname();
@@ -27,10 +23,10 @@ export default function Header({ className = '' }: Readonly<{ className?: string
             </div>
           </div>
 
-          <div className="flex flex-auto sm:hidden items-end justify-end">
-            <DropdownMenu menus={links} />
+          <div className="flex flex-auto md:hidden items-end justify-end">
+            <DropdownMenu menus={menus} />
           </div>
-          <div className="flex-auto hidden sm:flex">
+          <div className="flex-auto hidden md:flex">
             <NavBar pathname={pathname} />
           </div>
 
@@ -52,7 +48,7 @@ function NavBar({ pathname = '' }: Readonly<{ pathname?: string }>) {
       <div className="bg-zinc-800 rounded-full shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-700/90 backdrop-blur overflow-hidden">
         <ul className="flex gap-1 text-sm mx-2">
           {
-            links.map((link) => (
+            menus.map((link) => (
               <li key={link.name}>
                 <Link className=
                   {
