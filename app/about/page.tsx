@@ -20,7 +20,7 @@ export default function Page() {
 
       <section className="mt-12 lg:mt-0 lg:order-first lg:row-span-2">
         <h1 className="text-3xl font-bold sm:text-5xl">
-          Hi, I'm Deanu Haratinu.
+          Hi, I&apos;m Deanu Haratinu.
         </h1>
         <AboutMeText />
       </section >
@@ -36,22 +36,22 @@ function AboutMeText() {
   return (
     <div className="mt-10 text-base/relaxed text-zinc-400">
       <p>
-        I've been familiar with computers since I was a child — a rare privilege growing up In Indonesia.
+        I&apos;ve been familiar with computers since I was a child — a rare privilege growing up In Indonesia.
         I still remember my first encounter to programming: a Visual Basic book I picked up in elementary school.
       </p>
       <br />
       <p>
         In college, I chose to major in Physics. My interest in programming never faded. I started a computational study group that focused on C and C++ as the main programming language and led it for 2 years.
-        Even for my bachelor’s thesis, I built a system using Python and Arduino to measure the acoustics of a room — combining both software and hardware in one project.
+        Even for my bachelor&apos;s thesis, I built a system using Python and Arduino to measure the acoustics of a room — combining both software and hardware in one project.
       </p>
       <br />
       <p>
-        After graduating, I found myself without a clear direction and tried starting a small business. Unfortunately, it didn't work out — luck wasn't on my side at the time.
+        After graduating, I found myself without a clear direction and tried starting a small business. Unfortunately, it didn&apos;t work out — luck wasn&apos;t on my side at the time.
         Then in 2021, an opportunity came along for me to become a Software Developer. It was an easy decision. I knew this was my path.
       </p>
       <br />
       <p>
-        Since then, I've been developing software solutions across various industries. These days, I mainly focus on mobile app development, with occasional work on backend systems.
+        Since then, I&apos;ve been developing software solutions across various industries. These days, I mainly focus on mobile app development, with occasional work on backend systems.
         Still, I hesitate to label myself a <i>Full Stack Developer</i> — or even a <i>Software Engineer</i> — but I enjoy building things that work and solve real problems.
       </p>
     </div>
