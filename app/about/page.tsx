@@ -41,7 +41,7 @@ function AboutMeText() {
       </p>
       <br />
       <p>
-        In college, I chose to major in Physics. My interest in programming never faded. I started a computational study group that focused on C and C++ as the main programming language and led it for 2 years.  
+        In college, I chose to major in Physics. My interest in programming never faded. I started a computational study group that focused on C and C++ as the main programming language and led it for 2 years.
         Even for my bachelor’s thesis, I built a system using Python and Arduino to measure the acoustics of a room — combining both software and hardware in one project.
       </p>
       <br />
@@ -52,7 +52,7 @@ function AboutMeText() {
       <br />
       <p>
         Since then, I've been developing software solutions across various industries. These days, I mainly focus on mobile app development, with occasional work on backend systems.
-        Still, I hesitate to labele myself a <i>Full Stack Developer</i> — or even a <i>Software Engineer</i> — but I enjoy building things that work and solve real problems.
+        Still, I hesitate to label myself a <i>Full Stack Developer</i> — or even a <i>Software Engineer</i> — but I enjoy building things that work and solve real problems.
       </p>
     </div>
   );
