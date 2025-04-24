@@ -1,3 +1,4 @@
+import { Project } from "../data/models/project.model";
 import TechStack from "./TechStack";
 
 export default function ProjectCard({ project = {} }: Readonly<{ project?: Project }>) {

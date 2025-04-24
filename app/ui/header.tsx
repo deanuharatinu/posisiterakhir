@@ -8,6 +8,7 @@ import DropdownMenu from "./DropdownMenu";
 
 // import data
 import { menus } from "../data/static/menus";
+import Image from "next/image";
 
 export default function Header({ className = '' }: Readonly<{ className?: string }>) {
   const pathname = usePathname();
@@ -19,7 +20,7 @@ export default function Header({ className = '' }: Readonly<{ className?: string
         <div className="flex">
           <div className="flex cursor-pointer" >
             <div className="w-[40px] bg-zinc-800 rounded-full shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-700/90 hover:ring-zinc-500 transition duration-300">
-              <img src="../favicon.ico" alt="profile" />
+              <Image src="../favicon.ico" alt="profile" />
             </div>
           </div>
 
