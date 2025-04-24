@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col " >
+    <div className="flex flex-col" >
       <div className="flex flex-col lg:max-w-3xl">
         <div className="flex flex-col lg:max-w-2xl">
           <h1 className="text-5xl/tight font-bold tracking-tight">
