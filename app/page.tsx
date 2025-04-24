@@ -2,8 +2,8 @@ import ResumeCard from "./ui/ResumeCard";
 import HomePageArticles from "./ui/HomePageArticles";
 
 // import data
-import resume from "./data/resume.json" assert { type: 'json' };
-import articles from "./data/articles.json" assert { type: 'json' };
+import resume from "./data/static/resume.json" assert { type: 'json' };
+import articles from "./data/static/articles.json" assert { type: 'json' };
 
 export default function Home() {
   return (
