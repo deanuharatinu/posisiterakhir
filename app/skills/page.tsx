@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="flex felx-col">
-      <div className="flex flex-col lg:max-w-3xl">
+      <div className="flex flex-col w-full lg:max-w-4xl">
         <div className="flex flex-col lg:max-w-2xl">
           <h1 className="text-5xl/tight font-bold tracking-tight">
             Skills and Tools.
           </h1>
           <p className="text-zinc-400 mt-8">
-            A collection of the skills and tools I’ve picked up over the years — and still use daily.
+            A collection of the skills and tools I&apos;ve picked up over the years — and still use daily.
           </p>
         </div>
 
