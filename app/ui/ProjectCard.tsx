@@ -1,5 +1,8 @@
+'use client'
+
 import { Project } from "../data/models/project.model";
 import TechStack from "./TechStack";
+import { Tooltip } from "react-tooltip";
 
 export default function ProjectCard({ project = {} }: Readonly<{ project?: Project }>) {
   return (
@@ -36,11 +39,25 @@ function CardContent({ project }: Readonly<{ project: Project }>) {
           Tech Stack
         </h2>
         <div className="relative mt-2">
+          <div>
+            <Tooltip id="tooltip"
+              style={{ backgroundColor: "#cbd5e1", color: "#222" }}
+            />
+          </div>
           <div className="grid grid-cols-[repeat(auto-fill,_minmax(50px,50px))] gap-y-2 gap-x-2">
             {
               project.techStack?.map((techStack, index) => {
                 return (
-                  <TechStack key={`${techStack} + ${index}`} techStack={techStack} />
+                  <button
+                    key={`${techStack} + ${index}`}
+                    data-tooltip-id="tooltip"
+                    data-tooltip-content={techStack}
+                    data-tooltip-delay-show={100}
+                    data-tooltip-place="top"
+                    className="flex flex-col"
+                  >
+                    <TechStack techStack={techStack} />
+                  </button>
                 );
               })
             }
