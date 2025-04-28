@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 // import data
-import articles from "../data/static/articles.json" assert { type: 'json' };
+import { articles } from "../data/static/articles"
 import Articles from "./Articles";
 
 export const metadata: Metadata = {
@@ -23,9 +23,9 @@ export default function Page() {
         </p>
       </div>
       {
-        articles.articles &&
+        articles &&
         <div className="mt-16">
-          <Articles articles={articles.articles} />
+          <Articles articles={articles} />
         </div>
       }
     </div >
