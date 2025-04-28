@@ -1,5 +1,5 @@
-import ResumeCard from "./ui/ResumeCard";
-import HomePageArticles from "./ui/HomePageArticles";
+import ResumeCard from "../ui/ResumeCard";
+import HomePageArticles from "../ui/HomePageArticles";
 
 // import data
 import { resumeData } from "./data/static/resume";

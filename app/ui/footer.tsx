@@ -2,7 +2,7 @@ import Link from "next/link";
 import { InnerContainer } from "./container";
 
 // import data
-import { menus } from "../data/static/menus";
+import { menus } from "../(public)/data/static/menus";
 
 export default function Footer() {
   return (

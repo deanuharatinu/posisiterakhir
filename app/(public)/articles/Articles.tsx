@@ -1,4 +1,4 @@
-import { formatMillisToDate } from "../utils/utils";
+import { formatMillisToDate } from "../../utils/utils";
 
 export default function Articles({ articles }: Readonly<{ articles?: { titles?: string, dateMillis?: string, content?: string, slug?: string }[] }>) {
   const isNotEmpty = (articles?.length ?? 0) > 0;
