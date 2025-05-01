@@ -18,7 +18,7 @@ export default function Page() {
     }
 
     fetchUser()
-  }, [])
+  })
 
   return (
     <div className="flex justify-center items-center h-screen">

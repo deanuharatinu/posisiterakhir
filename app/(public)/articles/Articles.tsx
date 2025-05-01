@@ -14,7 +14,7 @@ export default async function Articles() {
   }
 
 
-  let articles: ArticleModel[] = (data?.map((article) => {
+  const articles: ArticleModel[] = (data?.map((article) => {
     return {
       title: article.title,
       dateMillis: article.created_at,

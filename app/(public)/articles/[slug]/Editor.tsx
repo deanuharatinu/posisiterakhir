@@ -1,9 +1,14 @@
 import { useEffect, useRef } from "react";
-import EditorJS from "@editorjs/editorjs";
+import EditorJS, { OutputData } from "@editorjs/editorjs";
+import Header from "@editorjs/header";
+import Paragraph from "@editorjs/paragraph";
+import Quote from "@editorjs/quote";
+import Table from "@editorjs/table";
 
 type Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
-  onChange?: (data: any) => void;
+  onChange?: (data: OutputData) => void;
 };
 
 export default function EditorWrapper({ data, onChange }: Props) {
@@ -16,10 +21,10 @@ export default function EditorWrapper({ data, onChange }: Props) {
         data,
         readOnly: true,
         tools: {
-          header: require("@editorjs/header"),
-          paragraph: require("@editorjs/paragraph"),
-          quote: require("@editorjs/quote"),
-          table: require("@editorjs/table"),
+          header: Header,
+          paragraph: Paragraph,
+          quote: Quote,
+          table: Table,
         },
         onChange: async () => {
           const outputData = await editor.save();
@@ -42,7 +47,7 @@ export default function EditorWrapper({ data, onChange }: Props) {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [data]);
+  });
 
   return <div id="editorjs" />;
 }

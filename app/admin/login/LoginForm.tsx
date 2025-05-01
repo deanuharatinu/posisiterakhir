@@ -10,7 +10,8 @@ const initialState = {
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
-  const [state, formAction, pending] = useActionState(login, initialState)
+  const [state, formAction] = useActionState(login, initialState)
+  console.log(state)
 
   const passwordRef = useRef<HTMLInputElement>(null)
 
