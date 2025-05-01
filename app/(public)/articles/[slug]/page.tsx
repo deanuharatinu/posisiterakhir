@@ -1,5 +1,6 @@
 import { createClient } from "@/app/utils/supabase/server"
 import { notFound } from "next/navigation"
+import Article from "./Article"
 
 export const dynamic = 'force-dynamic'
 
@@ -19,6 +20,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
 
   return (
-    <div>My Post: {slug}</div>
+    <div>
+      <Article />
+    </div>
   )
 }
