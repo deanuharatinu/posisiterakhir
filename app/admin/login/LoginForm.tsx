@@ -1,21 +1,18 @@
 'use client';
 
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useActionState, useRef, useState } from "react";
+import { login } from "./actions";
+
+const initialState = {
+  errors: ''
+}
 
 export default function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
+  const [state, formAction, pending] = useActionState(login, initialState)
 
-  const passwordRef = useRef<HTMLInputElement>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    console.log(email);
-    console.log(password);
-  }
+  const passwordRef = useRef<HTMLInputElement>(null)
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -34,14 +31,14 @@ export default function LoginForm() {
           Login to your account
         </h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form action={formAction}>
         <div className="flex flex-col w-[300px] gap-6 mt-8">
           <input
+            id="email"
+            name="email"
             type="email"
             placeholder="Email address"
-            value={email}
             maxLength={32}
-            onChange={(e) => setEmail(e.target.value)}
             onKeyDown={handleKeyDown}
             required
             className="ring-1 bg-zinc-900 ring-zinc-700 p-2.5 rounded-md text-sm focus:ring-2 focus:ring-cyan-900 outline-none"
@@ -49,10 +46,9 @@ export default function LoginForm() {
 
           <div className="relative">
             <input
-              type={showPassword ? 'text' : 'password'}
+              id="password"
+              name="password"
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               maxLength={32}
               required
               ref={passwordRef}
