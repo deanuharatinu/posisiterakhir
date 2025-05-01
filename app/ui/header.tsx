@@ -48,20 +48,28 @@ function NavBar({ pathname = '' }: Readonly<{ pathname?: string }>) {
       <div className="bg-zinc-800 rounded-full shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-700/90 backdrop-blur overflow-hidden">
         <ul className="flex gap-1 text-sm mx-2">
           {
-            menus.map((link) => (
-              <li key={link.name}>
-                <Link className=
-                  {
-                    clsx(
-                      "relative block px-4 py-2 transition duration-300 hover:text-cyan-500",
-                      {
-                        "text-cyan-500 after:absolute after:left-0 after:top-9 after:h-1 after:w-full after:bg-blue-400 after:blur-md": pathname === link.href,
-                      }
-                    )
-                  }
-                  href={link.href}>{link.name}</Link>
-              </li>
-            ))
+            menus.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(`${link.href}/`);
+
+              return (
+                <li key={link.name}>
+                  <Link className=
+                    {
+                      clsx(
+                        "relative block px-4 py-2 transition duration-300 hover:text-cyan-500",
+                        {
+                          "text-cyan-500 after:absolute after:left-0 after:top-9 after:h-1 after:w-full after:bg-blue-400 after:blur-md": isActive,
+                        }
+                      )
+                    }
+                    href={link.href}>{link.name}</Link>
+                </li>
+              )
+            }
+            )
           }
         </ul>
       </div>
