@@ -7,7 +7,7 @@ import DropdownMenu from "./DropdownMenu";
 import { InnerContainer } from "./container";
 
 // import data
-import { menus } from "../(public)/data/static/menus";
+import { menus } from "../data/static/menus";
 import Image from "next/image";
 
 export default function Header({ className = '' }: Readonly<{ className?: string }>) {

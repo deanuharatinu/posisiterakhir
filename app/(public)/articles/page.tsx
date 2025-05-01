@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 // import data
-import { articles } from "../data/static/articles"
+import { articles } from "../../data/static/articles"
 import Articles from "./Articles";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function Page() {
       {
         articles &&
         <div className="mt-16">
-          <Articles articles={articles} />
+          <Articles />
         </div>
       }
     </div >
