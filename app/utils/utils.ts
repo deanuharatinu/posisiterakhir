@@ -11,6 +11,17 @@ function formatMillisToDate(millis?: string): string {
   });
 }
 
+function formatTimestampToDate(timestamp?: string): string {
+  if (!timestamp) return "";
+
+  const date = new Date(timestamp);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 function getTechStackIconPath(techStack?: string): string {
   if (techStack == undefined) {
     return ""
@@ -19,4 +30,4 @@ function getTechStackIconPath(techStack?: string): string {
   return `/techstack-icons/${techStack?.toLowerCase()}.svg`
 }
 
-export { formatMillisToDate, getTechStackIconPath };
+export { formatMillisToDate, formatTimestampToDate, getTechStackIconPath };
