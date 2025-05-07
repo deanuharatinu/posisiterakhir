@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-black);
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -27,7 +27,7 @@ body {
 
 .ce-block__content {
   max-width: 100%;
-  
+
   p,
   ce-paragraph {
     @apply tracking-wider text-[12px] text-gray-500;
