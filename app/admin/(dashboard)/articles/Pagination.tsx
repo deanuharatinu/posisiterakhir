@@ -15,83 +15,38 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
     return `${pathname}?${params.toString()}`
   }
 
+  let threshold = 4
+  if (totalPages < threshold) {
+    threshold = totalPages
+  }
+
+  let startNumber = 0
+  let pageTotalOffset = ((Math.ceil(currentPage / threshold)) - 1) * threshold
+  if (pageTotalOffset <= totalPages) {
+    startNumber = pageTotalOffset
+  }
+
+  if ((startNumber + threshold) > totalPages) {
+    threshold = totalPages - startNumber
+  }
+
   return (
     <ul className="flex justify-center gap-1 text-gray-900">
-      {/* previous */}
-      <li>
-        <button
-          className=
-          {
-            clsx(
-              "grid size-8 place-content-center",
-              currentPage == 1 ? "cursor-not-allowed" : "cursor-pointer hover:rounded-lg hover:bg-neutral-500 hover:transition-colors"
-            )
-          }
-          aria-label="Previous page"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={
-              clsx(
-                "size-4",
-                currentPage == 1 ? "fill-neutral-600" : "fill-neutral-300"
-              )
-            }
-
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      </li>
+      <PaginationArrow isDisabled={currentPage == 1} direction='left' href={createPageURL(currentPage - 1)} />
 
       {
-        Array.from({ length: totalPages }, (_, i) => {
+        Array.from({ length: threshold }, (_, i) => {
           return (
             <PaginationNumber key={i}
-              isActive={currentPage == (i + 1)}
-              position={i}
-              href={createPageURL(i + 1)}
+              isActive={currentPage == (i + 1 + startNumber)}
+              position={i + 1 + startNumber}
+              href={createPageURL(i + 1 + startNumber)}
             />
           )
         })
       }
 
-      {/* Next */}
-      <li>
-        <button
-          className=
-          {
-            clsx(
-              "grid size-8 place-content-center",
-              currentPage == totalPages ? "cursor-not-allowed" : "cursor-pointer hover:rounded-lg hover:bg-neutral-500 hover:transition-colors"
-            )
-          }
-          aria-label="Next page"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className=
-            {
-              clsx(
-                "size-4",
-                currentPage == totalPages ? "fill-neutral-600" : "fill-neutral-300"
-              )
-            }
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      </li>
+      <PaginationArrow isDisabled={currentPage == totalPages} direction='right' href={createPageURL(currentPage + 1)} />
     </ul>
   )
 }
@@ -109,8 +64,95 @@ function PaginationNumber({ position, isActive, href }: { position: number, isAc
           )
         }
       >
-        {position + 1}
+        {position}
       </Link>
     </li>
+  )
+}
+
+function PaginationArrow({ isDisabled, direction, href }: { isDisabled: boolean, direction: 'left' | 'right', href: string }) {
+  const className = clsx(
+    "grid size-8 place-content-center",
+    isDisabled ? "cursor-not-allowed" : "cursor-pointer hover:rounded-lg hover:bg-neutral-500 hover:transition-colors"
+  )
+
+  return (
+    <>
+      {
+        isDisabled ?
+          <li>
+            <div
+              className={className}
+              aria-label="Next page"
+            >
+              {
+                direction == 'left' ?
+                  <LeftArrow isDisabled={isDisabled} />
+                  :
+                  <RightArrow isDisabled={isDisabled} />
+              }
+            </div>
+          </li>
+          :
+          <li>
+            <Link
+              href={href}
+              className={className}
+              aria-label="Next page"
+            >
+              {
+                direction == 'left' ?
+                  <LeftArrow isDisabled={isDisabled} />
+                  :
+                  <RightArrow isDisabled={isDisabled} />
+              }
+            </Link>
+          </li>
+      }
+    </>
+  )
+}
+
+function LeftArrow({ isDisabled }: { isDisabled: boolean }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className=
+      {
+        clsx(
+          "size-4",
+          isDisabled ? "fill-neutral-600" : "fill-neutral-300"
+        )
+      }
+      viewBox="0 0 20 20"
+    >
+      <path
+        fillRule="evenodd"
+        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  )
+}
+
+function RightArrow({ isDisabled }: { isDisabled: boolean }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className=
+      {
+        clsx(
+          "size-4",
+          isDisabled ? "fill-neutral-600" : "fill-neutral-300"
+        )
+      }
+      viewBox="0 0 20 20"
+    >
+      <path
+        fillRule="evenodd"
+        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+        clipRule="evenodd"
+      />
+    </svg>
   )
 }
