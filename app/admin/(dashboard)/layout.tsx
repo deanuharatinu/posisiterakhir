@@ -10,13 +10,13 @@ export default async function DashboardLayout({ children }: Readonly<{ children:
     redirect('/admin/login')
   }
 
-  const activeMenu = true
-
   return (
-    <div className="flex">
-      <NavSideBar />
+    <div className="flex min-h-screen flex-row">
+      <div className="fixed md:w-[16rem]">
+        <NavSideBar />
+      </div>
 
-      <div className="w-full">
+      <div className="md:ml-[16rem] flex-grow p-12">
         {children}
       </div>
 

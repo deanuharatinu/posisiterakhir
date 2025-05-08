@@ -13,7 +13,6 @@ export default async function Articles() {
     console.log(error)
   }
 
-
   const articles: ArticleModel[] = (data?.map((article) => {
     return {
       title: article.title,

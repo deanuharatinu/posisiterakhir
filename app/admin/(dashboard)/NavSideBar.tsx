@@ -14,11 +14,11 @@ const dashboardMenus = [
   }
 ]
 
-export default function NavSideBar() {
+export default function NavSideBar({ className }: Readonly<{ className?: string }>) {
   const pathname = usePathname()
 
   return (
-    <div className="w-xs bg-neutral-800">
+    <div className="hidden md:block bg-neutral-800">
       <div className="flex h-screen flex-col justify-between  border-r-1 border-zinc-600">
         <div className="px-4 py-6">
           <h1 className="text-xl font-bold">
@@ -34,7 +34,7 @@ export default function NavSideBar() {
                       href={`${menu.link}`}
                       className={
                         clsx(
-                          "block px-4 py-2 text-sm font-bold  hover:text-white rounded-lg hover:bg-neutral-600 transition-colors",
+                          "block px-4 py-2 text-base font-bold  hover:text-white rounded-lg hover:bg-neutral-600 transition-colors",
                           pathname == menu.link ? "text-cyan-500" : "text-neutral-400"
                         )
                       }
