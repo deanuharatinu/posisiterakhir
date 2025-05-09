@@ -1,7 +1,7 @@
 import { createClient } from "@/app/utils/supabase/server"
 import { formatTimestampToDate } from "@/app/utils/utils";
 
-export default async function AdminArticles({ currentPage, limit }: { currentPage: number, limit: number }) {
+export default async function AdminArticles({ query, currentPage, limit }: { query: string, currentPage: number, limit: number }) {
   const supabase = await createClient()
 
   const from = (currentPage - 1) * limit;
@@ -9,6 +9,7 @@ export default async function AdminArticles({ currentPage, limit }: { currentPag
   const { data, error } = await supabase
     .from('articles')
     .select()
+    .ilike('title', `%${query}%`)
     .order('created_at', { ascending: false })
     .range(from, to)
 
