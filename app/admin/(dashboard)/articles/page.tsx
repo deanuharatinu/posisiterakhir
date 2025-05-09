@@ -1,7 +1,7 @@
-import { createClient } from "@/app/utils/supabase/server";
 import AdminArticles from "./AdminArticles"
 import Pagination from "./Pagination";
 import Form from 'next/form'
+import { fetchArticlesCount } from "@/app/data/data";
 
 export default async function Page(props: {
   searchParams?: Promise<{
@@ -9,26 +9,17 @@ export default async function Page(props: {
     page?: string;
   }>
 }) {
-  const supabase = await createClient()
-
   const searchParams = await props.searchParams
   const query = searchParams?.query ?? '';
 
-  const { count, error } = await supabase
-    .from('articles')
-    .select(`*`, { count: 'exact', head: true })
-    .ilike('title', `%${query}%`)
+  const articlesCount = await fetchArticlesCount(query)
 
-  if (error) {
-    console.log(error)
-  }
-
-  const currentPage = Number(searchParams?.page) || 1
   const limit = 10
-  const totalPages = Math.ceil((count ?? 1) / limit)
+  const currentPage = Number(searchParams?.page) || 1
+  const totalPages = Math.ceil((articlesCount ?? 1) / limit)
 
   return (
-    <div className="bg-neutral-800 p-6 rounded-2xl">
+    < div className="bg-neutral-800 p-6 rounded-2xl">
       <div className="flex flex-col">
         <div className="flex flex-row justify-between items-center">
           <h1 className="font-bold text-2xl">
