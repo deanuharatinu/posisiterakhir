@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ModalProvider from "./utils/providers";
 
 export const metadata: Metadata = {
   title: "Posisi Terakhir - Deanu Haratinu's Personal Website",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <ModalProvider>
+          {children}
+        </ModalProvider>
       </body>
     </html >
   );
