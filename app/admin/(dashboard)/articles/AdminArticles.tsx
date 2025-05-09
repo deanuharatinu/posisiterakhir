@@ -1,11 +1,15 @@
 import { createClient } from "@/app/utils/supabase/server";
 
-export default async function AdminArticles() {
+export default async function AdminArticles({ currentPage, limit }: { currentPage: number, limit: number }) {
   const supabase = await createClient()
 
+  const from = (currentPage - 1) * limit;
+  const to = from + limit
   const { data, error } = await supabase
     .from('articles')
     .select()
+    .order('created_at', { ascending: false })
+    .range(from, to)
 
   if (error) {
     console.log(error)
