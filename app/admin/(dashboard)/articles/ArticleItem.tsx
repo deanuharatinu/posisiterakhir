@@ -3,9 +3,16 @@
 import { ModalAction, ModalContext } from "@/app/utils/providers";
 import { formatTimestampToDate } from "@/app/utils/utils"
 import { useContext } from "react";
+import { deleteArticle } from "./actions";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ArticleItem({ article, index }: { article: any, index: number }) {
   const { setModalAction } = useContext(ModalContext);
+
+  const onModalPositiveClick = async () => {
+    await deleteArticle(article.id)
+    setModalAction({ isShow: false })
+  }
 
   return (
     <tr className="text-neutral-400">
@@ -31,11 +38,7 @@ export default function ArticleItem({ article, index }: { article: any, index: n
               description: "Article with title: " + article.title + ", will be deleted and set to unpublished.",
               positiveButton: "Delete",
               negativeButton: "Cancel",
-              onPositiveClick: () => {
-                // TODO delete the article
-                setModalAction({ isShow: false })
-                console.log("something happened")
-              }
+              onPositiveClick: onModalPositiveClick
             }
 
             setModalAction(modalAction)

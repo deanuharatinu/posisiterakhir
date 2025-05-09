@@ -1,6 +1,6 @@
 import { createClient } from "@/app/utils/supabase/server"
 import { redirect } from "next/navigation"
-import NavSideBar from "./NavSideBar"
+import AdminNavSideBar from "../../ui/AdminNavSideBar"
 
 export default async function DashboardLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const supabase = await createClient()
@@ -13,7 +13,7 @@ export default async function DashboardLayout({ children }: Readonly<{ children:
   return (
     <div className="flex min-h-screen flex-row">
       <div className="fixed md:w-[16rem]">
-        <NavSideBar />
+        <AdminNavSideBar />
       </div>
 
       <div className="md:ml-[16rem] flex-grow p-12">

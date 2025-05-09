@@ -16,7 +16,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
     }
 
     let startNumber = 0
-    let pageTotalOffset = ((Math.ceil(currentPage / threshold)) - 1) * threshold
+    const pageTotalOffset = ((Math.ceil(currentPage / threshold)) - 1) * threshold
     if (pageTotalOffset <= totalPages) {
       startNumber = pageTotalOffset
     }
