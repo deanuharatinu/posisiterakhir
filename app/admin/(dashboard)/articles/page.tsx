@@ -1,44 +1,6 @@
+import { createClient } from "@/app/utils/supabase/server";
 import AdminArticles from "./AdminArticles"
 import Pagination from "./Pagination";
-
-const articles = [
-  {
-    id: "123123",
-    title: "Sebuah Title",
-    lastUpdate: "12-12-2024",
-    published: "yes",
-  },
-  {
-    id: "123123",
-    title: "Sebuah Title",
-    lastUpdate: "12-12-2024",
-    published: "yes",
-  },
-  {
-    id: "123123",
-    title: "Sebuah Title",
-    lastUpdate: "12-12-2024",
-    published: "yes",
-  },
-  {
-    id: "123123",
-    title: "Sebuah Title",
-    lastUpdate: "12-12-2024",
-    published: "yes",
-  },
-  {
-    id: "123123",
-    title: "Sebuah Title",
-    lastUpdate: "12-12-2024",
-    published: "yes",
-  },
-  {
-    id: "123123",
-    title: "Sebuah Title",
-    lastUpdate: "12-12-2024",
-    published: "yes",
-  },
-]
 
 export default async function Page(props: {
   searchParams?: Promise<{
@@ -46,10 +8,16 @@ export default async function Page(props: {
     page?: string;
   }>
 }) {
+  const supabase = await createClient()
+  const { count, error } = await supabase
+    .from('articles')
+    .select(`*`, { count: 'exact', head: true })
+
   const searchParams = await props.searchParams
-  const query = searchParams?.query ?? '';
+  // const query = searchParams?.query ?? '';
   const currentPage = Number(searchParams?.page) || 1
-  const totalPages = 10
+  const limit = 10
+  const totalPages = Math.ceil((count ?? 1) / limit)
 
   return (
     <div className="bg-neutral-800 p-6 rounded-2xl">
@@ -71,13 +39,18 @@ export default async function Page(props: {
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-700">
-                <AdminArticles />
+                <AdminArticles currentPage={currentPage} limit={limit} />
               </tbody>
             </table>
           </div>
 
           <div className="mt-6 self-start">
-            <Pagination totalPages={totalPages} />
+            {
+              currentPage <= totalPages ?
+                <Pagination totalPages={totalPages} />
+                :
+                <div className="mt-6"></div>
+            }
           </div>
         </div>
       </div>

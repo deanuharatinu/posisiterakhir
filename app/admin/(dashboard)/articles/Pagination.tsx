@@ -9,43 +9,45 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
   const searchParams = useSearchParams()
   const currentPage = Number(searchParams.get('page')) || 1
 
+  const generatePagination = () => {
+    let threshold = 4
+    if (totalPages < threshold) {
+      threshold = totalPages
+    }
+
+    let startNumber = 0
+    let pageTotalOffset = ((Math.ceil(currentPage / threshold)) - 1) * threshold
+    if (pageTotalOffset <= totalPages) {
+      startNumber = pageTotalOffset
+    }
+
+    if ((startNumber + threshold) > totalPages) {
+      threshold = totalPages - startNumber
+    }
+
+    return (
+      Array.from({ length: threshold }, (_, i) => {
+        return (
+          <PaginationNumber key={i}
+            isActive={currentPage == (i + 1 + startNumber)}
+            position={i + 1 + startNumber}
+            href={createPageURL(i + 1 + startNumber)}
+          />
+        )
+      })
+    )
+  }
+
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams)
     params.set('page', pageNumber.toString())
     return `${pathname}?${params.toString()}`
   }
 
-  let threshold = 4
-  if (totalPages < threshold) {
-    threshold = totalPages
-  }
-
-  let startNumber = 0
-  let pageTotalOffset = ((Math.ceil(currentPage / threshold)) - 1) * threshold
-  if (pageTotalOffset <= totalPages) {
-    startNumber = pageTotalOffset
-  }
-
-  if ((startNumber + threshold) > totalPages) {
-    threshold = totalPages - startNumber
-  }
-
   return (
     <ul className="flex justify-center gap-1 text-gray-900">
       <PaginationArrow isDisabled={currentPage == 1} direction='left' href={createPageURL(currentPage - 1)} />
-
-      {
-        Array.from({ length: threshold }, (_, i) => {
-          return (
-            <PaginationNumber key={i}
-              isActive={currentPage == (i + 1 + startNumber)}
-              position={i + 1 + startNumber}
-              href={createPageURL(i + 1 + startNumber)}
-            />
-          )
-        })
-      }
-
+      {generatePagination()}
       <PaginationArrow isDisabled={currentPage == totalPages} direction='right' href={createPageURL(currentPage + 1)} />
     </ul>
   )
