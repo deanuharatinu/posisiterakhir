@@ -14,7 +14,7 @@ const dashboardMenus = [
   }
 ]
 
-export default function NavSideBar({ className }: Readonly<{ className?: string }>) {
+export default function AdminNavSideBar() {
   const pathname = usePathname()
 
   return (
