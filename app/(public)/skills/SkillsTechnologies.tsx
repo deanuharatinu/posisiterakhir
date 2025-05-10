@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTechStackIconPath } from "../utils/utils";
+import { getTechStackIconPath } from "../../utils/utils";
 
 export default function SkillsTechnologies({
   techStacks, className = ""

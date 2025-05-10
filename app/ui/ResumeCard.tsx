@@ -1,10 +1,10 @@
 'use client'
 
-import { supabase } from "../utils/supabaseClient";
+import createClient from "../utils/supabase/client";
 
 export default function ResumeCard({ resumeData }: Readonly<{ resumeData?: { company?: string, role?: string, year?: string }[] }>) {
   function downloadResume() {
-    const { data } = supabase.storage.from('external-bucket-posisiterakhir/resume').getPublicUrl('resume-deanu-haratinu.pdf?download');
+    const { data } = createClient().storage.from('external-bucket-posisiterakhir/resume').getPublicUrl('resume-deanu-haratinu.pdf?download');
     window.open(`${data.publicUrl}`, '_blank', 'noopener,noreferrer');
   }
 

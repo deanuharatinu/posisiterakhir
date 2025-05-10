@@ -1,9 +1,9 @@
-import ResumeCard from "./ui/ResumeCard";
-import HomePageArticles from "./ui/HomePageArticles";
+import ResumeCard from "../ui/ResumeCard";
+import HomePageArticles from "../ui/HomePageArticles";
 
 // import data
-import resume from "./data/static/resume.json" assert { type: 'json' };
-import articles from "./data/static/articles.json" assert { type: 'json' };
+import { resumeData } from "../data/static/resume";
+import { articles } from "../data/static/articles"
 import Image from "next/image";
 
 export default function Home() {
@@ -57,14 +57,14 @@ export default function Home() {
             Articles
           </h2>
           {
-            articles.articles &&
+            articles &&
             <div className="mt-8">
-              <HomePageArticles articles={articles.articles} />
+              <HomePageArticles articles={articles} />
             </div>
           }
         </div>
         <div className="mt-12 lg:mt-0 lg:ml-16">
-          <ResumeCard resumeData={resume.resumeData} />
+          <ResumeCard resumeData={resumeData} />
         </div>
       </section>
     </div>

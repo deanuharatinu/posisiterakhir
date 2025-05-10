@@ -1,5 +1,5 @@
-import { Project } from "../data/models/project.model";
-import ProjectCard from "../ui/ProjectCard";
+import { Project } from "../../data/models/project.model";
+import ProjectCard from "../../ui/ProjectCard";
 
 export default function ProjectShowcase({ className = '', projects = [] }: Readonly<{ className?: string, projects?: Project[] }>) {
   return (

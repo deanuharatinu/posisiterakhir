@@ -1,6 +1,6 @@
 // import data
 import { Metadata } from 'next';
-import projects from '../data/static/projects.json' assert { type: 'json' };
+import { projects } from '../../data/static/projects';
 import ProjectShowcase from './ProjectShowCase';
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function Page() {
         </div>
       </div>
 
-      <ProjectShowcase className="mt-24" projects={projects.projects} />
+      <ProjectShowcase className="mt-24" projects={projects} />
     </div >
   );
 }

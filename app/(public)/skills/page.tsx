@@ -5,7 +5,7 @@ import SkillsTechnologies from "./SkillsTechnologies";
 import {
   programmingLanguage, cloudDevsecops, framework,
   tools, ides, technologies
-} from "../data/static/skills";
+} from "../../data/static/skills";
 
 export const metadata: Metadata = {
   title: "Skills - Deanu Haratinu's Personal Website",
@@ -38,7 +38,7 @@ export default function Page() {
 
           <div className="mt-12">
             <h2 className="text-base font-bold">
-              Cloud and DevSecOps
+              Cloud & DevSecOps
             </h2>
             <SkillsTechnologies
               className="mt-5"
@@ -48,7 +48,7 @@ export default function Page() {
 
           <div className="mt-12">
             <h2 className="text-base font-bold">
-              Framework or Library
+              Framework / Library
             </h2>
             <SkillsTechnologies
               className="mt-5"
