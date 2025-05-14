@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col mt-14 md:mt-0">
       <section>
         <Image
           className="absolute -top-16 left w-[64px] aspect-square rounded-2xl object-cover"
