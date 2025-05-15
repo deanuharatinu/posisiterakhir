@@ -5,7 +5,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
   const params = await props.params
   const slug = params.slug
 
-  let result = await getArticle(slug)
+  const result = await getArticle(slug)
   if (result) {
     console.log(result)
   }
