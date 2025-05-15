@@ -8,10 +8,11 @@ import Table from "@editorjs/table";
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
+  readOnly?: boolean;
   onChange?: (data: OutputData) => void;
 };
 
-export default function EditorWrapper({ data, onChange }: Props) {
+export default function EditorWrapper({ data, readOnly, onChange }: Readonly<Props>) {
   const editorRef = useRef<EditorJS | null>(null);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function EditorWrapper({ data, onChange }: Props) {
       const editor = new EditorJS({
         holder: "editorjs",
         data,
-        readOnly: true,
+        readOnly: readOnly,
         tools: {
           header: Header,
           paragraph: Paragraph,
