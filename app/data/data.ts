@@ -1,6 +1,7 @@
 'use server'
 
 import { createClient } from "@/app/utils/supabase/server"
+import { Article } from "./models/article.model"
 
 export async function fetchArticlesCount(query: string) {
   const supabase = await createClient()
@@ -52,4 +53,23 @@ export async function deleteArticleById(articleId: string) {
   }
 
   return true
+}
+
+export async function getPublishedArticleBySlug(slug: string) {
+  const supabase = await createClient()
+
+  const { data, error } = await supabase
+    .from('articles')
+    .select()
+    .eq('is_deleted', false)
+    .eq('published', true)
+    .eq('slug', slug)
+
+  if (error || data.length == 0) {
+    console.log(error)
+    return null
+  }
+
+  const article: Article[] = data
+  return article[0]
 }
