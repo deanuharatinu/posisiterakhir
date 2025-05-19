@@ -1,7 +1,7 @@
 import AdminArticles from "./AdminArticles"
 import Pagination from "./Pagination";
 import Form from 'next/form'
-import { fetchArticlesCount } from "@/app/data/data";
+import { fetchArticlesCount } from "@/app/lib/data";
 
 export default async function Page(props: {
   searchParams?: Promise<{

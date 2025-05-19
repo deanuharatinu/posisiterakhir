@@ -5,7 +5,7 @@ import SkillsTechnologies from "./SkillsTechnologies";
 import {
   programmingLanguage, cloudDevsecops, framework,
   tools, ides, technologies
-} from "../../data/static/skills";
+} from "../../lib/static/skills";
 
 export const metadata: Metadata = {
   title: "Skills - Deanu Haratinu's Personal Website",

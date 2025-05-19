@@ -1,6 +1,6 @@
 import { createClient } from "@/app/utils/supabase/server";
 import { formatTimestampToDate } from "../../utils/utils";
-import { Article as ArticleModel } from "@/app/data/models/article.model";
+import { Article as ArticleModel } from "@/app/lib/models/article.model";
 
 export default async function Articles() {
   const supabase = await createClient()

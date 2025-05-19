@@ -1,6 +1,6 @@
 'use client'
 
-import { Project } from "../data/models/project.model";
+import { Project } from "../lib/models/project.model";
 import TechStack from "./TechStack";
 import { Tooltip } from "react-tooltip";
 

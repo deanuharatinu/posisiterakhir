@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 // import data
-import { articles } from "../../data/static/articles"
+import { articles } from "../../lib/static/articles"
 import Articles from "./Articles";
 
 export const metadata: Metadata = {

@@ -2,8 +2,8 @@ import ResumeCard from "../ui/ResumeCard";
 import HomePageArticles from "../ui/HomePageArticles";
 
 // import data
-import { resumeData } from "../data/static/resume";
-import { articles } from "../data/static/articles"
+import { resumeData } from "../lib/static/resume";
+import { articles } from "../lib/static/articles"
 import Image from "next/image";
 
 export default function Home() {
