@@ -73,3 +73,44 @@ export async function getPublishedArticleBySlug(slug: string) {
   const article: Article[] = data
   return article[0]
 }
+
+export async function getArticleBySlug(slug: string) {
+  const supabase = await createClient()
+
+  const { data, error } = await supabase
+    .from('articles')
+    .select()
+    .eq('is_deleted', false)
+    .eq('slug', slug)
+
+  if (error || data.length == 0) {
+    console.log(error)
+    return null
+  }
+
+  const article: Article[] = data
+  return article[0]
+}
+
+export async function editArticleById(article: Article) {
+  const supabase = await createClient()
+
+  const updateAt = new Date().toISOString()
+  const { status, error } = await supabase
+    .from('articles')
+    .update({
+      title: article.title,
+      content: article.content,
+      published: article.published,
+      slug: article.slug,
+      updated_at: updateAt,
+    })
+    .eq('id', article.id)
+
+  if (error || status != 204) {
+    console.log(error)
+    return false
+  }
+
+  return true
+}
