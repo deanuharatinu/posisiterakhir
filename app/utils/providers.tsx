@@ -9,7 +9,7 @@ export type ModalAction = {
   description?: string,
   positiveButton?: string,
   negativeButton?: string,
-  onPositiveClick?: () => void
+  onPositiveClick?: (data: any) => void
 };
 
 export const ModalContext = createContext<{

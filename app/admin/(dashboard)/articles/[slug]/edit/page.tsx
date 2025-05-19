@@ -5,23 +5,11 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
   const params = await props.params
   const slug = params.slug
 
-  const result = await getArticle(slug)
-  if (result) {
-    console.log(result)
-  }
-
-  let json = {}
-  try {
-    json = JSON.parse(result?.content ?? '');
-  } catch (error) {
-    console.error("Failed to parse article content:", error);
-    json = {};
-  }
-
+  const article = await getArticle(slug)
 
   return (
-    <div className="">
-      <Article article={json} />
+    <div>
+      <Article article={article} />
     </div>
   )
 }
