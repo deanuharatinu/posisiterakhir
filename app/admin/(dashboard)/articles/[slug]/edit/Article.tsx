@@ -52,7 +52,7 @@ export default function Article({ article }: { article: ArticleModel }) {
       router.replace('/admin/articles')
     }
 
-  }, [state])
+  }, [state, router])
 
   return (
     <div className="flex flex-col bg-neutral-800 p-8 rounded-2xl">
