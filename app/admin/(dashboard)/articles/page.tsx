@@ -58,6 +58,7 @@ export default async function Page(props: {
                 <tr className="font-medium">
                   <th className="px-3 py-2 whitespace-nowrap">No.</th>
                   <th className="px-3 py-2 whitespace-nowrap">Title</th>
+                  <th className="px-3 py-2 whitespace-nowrap">Created At</th>
                   <th className="px-3 py-2 whitespace-nowrap">Last Updated</th>
                   <th className="px-3 py-2 whitespace-nowrap">Published</th>
                   <th className="text-center px-3 py-2 whitespace-nowrap">Actions</th>
