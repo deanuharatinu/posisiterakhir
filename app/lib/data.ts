@@ -114,3 +114,25 @@ export async function editArticleById(article: Article) {
 
   return true
 }
+
+export async function createNewArticle(article: Article) {
+  const supabase = await createClient()
+
+  const createdAt = new Date().toISOString()
+  const { status, error } = await supabase
+    .from('articles')
+    .insert({
+      title: article.title,
+      content: article.content,
+      slug: article.slug,
+      published: article.published,
+      created_at: createdAt,
+    })
+
+  if (error || status != 201) {
+    console.log(error)
+    return false
+  }
+
+  return true
+}
