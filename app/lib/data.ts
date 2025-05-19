@@ -55,7 +55,7 @@ export async function deleteArticleById(articleId: string) {
   return true
 }
 
-export async function getPublishedArticleBySlug(slug: string) {
+export async function fetchPublishedArticleBySlug(slug: string) {
   const supabase = await createClient()
 
   const { data, error } = await supabase
@@ -74,7 +74,7 @@ export async function getPublishedArticleBySlug(slug: string) {
   return article[0]
 }
 
-export async function getArticleBySlug(slug: string) {
+export async function fetchArticleBySlug(slug: string) {
   const supabase = await createClient()
 
   const { data, error } = await supabase
@@ -90,6 +90,36 @@ export async function getArticleBySlug(slug: string) {
 
   const article: Article[] = data
   return article[0]
+}
+
+export async function fetchPublishedArticles(offset: number, limit: number): Promise<Article[]> {
+  const supabase = await createClient()
+
+  const { data, error } = await supabase
+    .from('articles')
+    .select()
+    .eq('is_deleted', false)
+    .order('created_at', { ascending: false })
+    .range(offset, offset + limit)
+
+  if (error || data.length == 0) {
+    console.log(error)
+    return []
+  }
+
+
+  const result = data.map((item) => {
+    return {
+      id: item.id ?? "",
+      title: item.title ?? "",
+      createdAt: item.created_at ?? "",
+      content: item.content ?? "",
+      updatedAt: item.updated_at ?? "",
+      slug: item.slug ?? ""
+    } as Article
+  })
+
+  return result
 }
 
 export async function editArticleById(article: Article) {
