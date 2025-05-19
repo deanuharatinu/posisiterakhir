@@ -1,16 +1,16 @@
 'use server'
 
 import { State } from "@/app/lib/actions"
-import { editArticleById, getArticleBySlug } from "@/app/lib/data"
+import { editArticleById, fetchArticleBySlug } from "@/app/lib/data"
 import { Article } from "@/app/lib/models/article.model"
 
 export async function getArticle(slug: string): Promise<Article> {
-  const result = await getArticleBySlug(slug)
+  const result = await fetchArticleBySlug(slug)
 
   const article: Article = {
     id: result?.id ?? "",
     title: result?.title ?? "",
-    dateMillis: result?.dateMillis ?? "",
+    createdAt: result?.createdAt ?? "",
     content: result?.content ?? "",
     slug: result?.slug ?? "",
     published: result?.published ?? false,
