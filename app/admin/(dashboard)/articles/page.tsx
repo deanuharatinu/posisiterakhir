@@ -2,6 +2,7 @@ import AdminArticles from "./AdminArticles"
 import Pagination from "./Pagination";
 import Form from 'next/form'
 import { fetchArticlesCount } from "@/app/lib/data";
+import Link from "next/link";
 
 export default async function Page(props: {
   searchParams?: Promise<{
@@ -25,13 +26,16 @@ export default async function Page(props: {
           <h1 className="font-bold text-2xl">
             Articles
           </h1>
-          <button className="flex flex-row items-center gap-2 bg-blue-500 font-bold py-3 px-4 rounded-lg cursor-pointer hover:bg-blue-400 transition-colors">
+          <Link
+            className="flex flex-row items-center gap-2 bg-blue-500 font-bold py-3 px-4 rounded-lg cursor-pointer hover:bg-blue-400 transition-colors"
+            href={'/admin/articles/create'}
+          >
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-            </span>Add new
-          </button>
+            </span>Create new
+          </Link>
         </div>
 
         <div className="mt-10 flex flex-col">
