@@ -56,11 +56,8 @@ export default function Article({ article }: { article: ArticleModel }) {
 
   return (
     <div className="flex flex-col bg-neutral-800 p-8 rounded-2xl">
-      <h1 className="text-xl font-bold">
-        Admin &gt; Article &gt; Edit
-      </h1>
       <form onSubmit={handleSubmit} className="flex flex-col">
-        <div className="flex flex-col min-w-full mt-8">
+        <div className="flex flex-col min-w-full mt-2">
           <label htmlFor="article-title" className="font-bold ml-1">
             Title
           </label>

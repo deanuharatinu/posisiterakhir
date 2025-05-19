@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { getArticle } from "./actions"
 import Article from "./Article"
 
@@ -9,6 +10,13 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
 
   return (
     <div>
+      <h1 className="text-xl font-bold mb-4 ml-2">
+        Admin &gt; <span>
+          <Link
+            className="hover:text-blue-400 transition-colors"
+            href={'/admin/articles'}>Articles</Link>
+        </span> &gt; Edit
+      </h1>
       <Article article={article} />
     </div>
   )
