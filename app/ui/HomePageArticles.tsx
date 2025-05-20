@@ -1,18 +1,19 @@
-import { formatMillisToDate } from "../utils/utils";
+import { Article as ArticleModel } from "../lib/models/article.model";
+import { formatTimestampToDate } from "../utils/utils";
 
-export default function HomePageArticles({ articles }: Readonly<{ articles?: { titles?: string, dateMillis?: string, content?: string, slug?: string }[] }>) {
+export default function HomePageArticles({ articles }: Readonly<{ articles: ArticleModel[] }>) {
   const isNotEmpty = (articles?.length ?? 0) > 0;
 
   return isNotEmpty ? (
     <div className="flex flex-col gap-8">
       {articles?.map((article, index) => (
-        <Article key={`${article.titles}-${index}`} article={article} />
+        <Article key={`${article.title}-${index}`} article={article} />
       ))}
     </div>
   ) : <></>;
 }
 
-function Article({ article }: Readonly<{ article: { title?: string, dateMillis?: string, content?: string, slug?: string } }>) {
+function Article({ article }: Readonly<{ article: ArticleModel }>) {
   return (
     <article>
       <div className="md:col-span-3 group relative flex flex-col">
@@ -29,7 +30,7 @@ function Article({ article }: Readonly<{ article: { title?: string, dateMillis?:
           <span className="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
             <span className="h-4 w-0.5 rounded-full bg-zinc-500"></span>
           </span>
-          {formatMillisToDate(article.dateMillis)}
+          {formatTimestampToDate(article.createdAt)}
         </time>
 
         <p className="relative z-10 mt-2 text-sm/relaxed text-zinc-400">

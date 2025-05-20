@@ -3,10 +3,12 @@ import HomePageArticles from "../ui/HomePageArticles";
 
 // import data
 import { resumeData } from "../lib/static/resume";
-import { articles } from "../lib/static/articles"
 import Image from "next/image";
+import { fetchPublishedArticles } from "../lib/data";
 
-export default function Home() {
+export default async function Home() {
+  const articles = await fetchPublishedArticles(0, 3)
+
   return (
     <div className="relative flex flex-col mt-14 md:mt-0">
       <section>
