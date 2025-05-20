@@ -1,14 +1,10 @@
 import ResumeCard from "../ui/ResumeCard";
 import HomePageArticles from "../ui/HomePageArticles";
-
-// import data
 import { resumeData } from "../lib/static/resume";
 import Image from "next/image";
-import { fetchPublishedArticles } from "../lib/data";
+import { Suspense } from "react";
 
 export default async function Home() {
-  const articles = await fetchPublishedArticles(0, 3)
-
   return (
     <div className="relative flex flex-col mt-14 md:mt-0">
       <section>
@@ -58,12 +54,12 @@ export default async function Home() {
           <h2 className="text-2xl font-bold">
             Articles
           </h2>
-          {
-            articles &&
-            <div className="mt-8">
-              <HomePageArticles articles={articles} />
-            </div>
-          }
+
+          <div className="mt-8">
+            <Suspense fallback={<ArticleShimmer />}>
+              <HomePageArticles />
+            </Suspense>
+          </div>
         </div>
         <div className="mt-12 lg:mt-0 lg:ml-16">
           <ResumeCard resumeData={resumeData} />
@@ -71,4 +67,19 @@ export default async function Home() {
       </section>
     </div>
   );
+}
+
+function ArticleShimmer() {
+  return (
+    <div className="">
+      <div className="animate-pulse space-y-4">
+        <div className="h-5 bg-gray-600 rounded w-3/4"></div>
+        <div className="h-40 bg-gray-600 rounded-lg"></div>
+        <div className="space-y-2">
+          <div className="h-3 bg-gray-600 rounded w-full"></div>
+          <div className="h-3 bg-gray-600 rounded w-5/6"></div>
+        </div>
+      </div>
+    </div>
+  )
 }

@@ -1,16 +1,17 @@
+import { fetchPublishedArticles } from "../lib/data";
 import { Article as ArticleModel } from "../lib/models/article.model";
 import { formatTimestampToDate } from "../utils/utils";
 
-export default function HomePageArticles({ articles }: Readonly<{ articles: ArticleModel[] }>) {
-  const isNotEmpty = (articles?.length ?? 0) > 0;
+export default async function HomePageArticles() {
+  const articles = await fetchPublishedArticles(0, 3)
 
-  return isNotEmpty ? (
+  return (
     <div className="flex flex-col gap-8">
       {articles?.map((article, index) => (
         <Article key={`${article.title}-${index}`} article={article} />
       ))}
     </div>
-  ) : <></>;
+  )
 }
 
 function Article({ article }: Readonly<{ article: ArticleModel }>) {
