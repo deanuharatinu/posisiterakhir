@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import Articles from "./Articles";
+import { Suspense } from "react";
+import ArticleShimmer from "@/app/ui/ArticleShimmer";
 
 export const metadata: Metadata = {
   title: "Articles - Deanu Haratinu's Personal Website",
@@ -20,7 +22,9 @@ export default function Page() {
         </p>
       </div>
       <div className="mt-16">
-        <Articles />
+        <Suspense fallback={<ArticleShimmer />}>
+          <Articles />
+        </Suspense>
       </div>
     </div >
   );
