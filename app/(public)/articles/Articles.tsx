@@ -1,19 +1,17 @@
-import { formatTimestampToDate } from "../../utils/utils";
+import { fetchPublishedArticles } from "@/app/lib/data";
+import { formatTimestampToDate, getContentPreview } from "../../utils/utils";
 import { Article as ArticleModel } from "@/app/lib/models/article.model";
-import { getArticles } from "./actions";
 
 export default async function Articles() {
-  const articles = await getArticles()
+  const articles = await fetchPublishedArticles(0, 10)
 
-  const isNotEmpty = (articles?.length ?? 0) > 0;
-
-  return isNotEmpty ? (
+  return (
     <div className="flex flex-col gap-10">
       {articles?.map((article, index) => (
         <Article key={`${article.title}-${index}`} article={article} />
       ))}
     </div>
-  ) : <></>;
+  )
 }
 
 function Article({ article }: Readonly<{ article: ArticleModel }>) {
@@ -38,7 +36,7 @@ function Article({ article }: Readonly<{ article: ArticleModel }>) {
           </time>
 
           <p className="relative z-10 mt-2 text-sm/relaxed text-zinc-400">
-            {article.content}
+            {getContentPreview(article.content ?? '')}
           </p>
 
           <div aria-hidden="true" className="relative z-10 mt-4 flex items-center text-sm font-medium text-cyan-500">

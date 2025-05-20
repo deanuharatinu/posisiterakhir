@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# posisiterakhir - Deanu Haratinu
+
+This is a full stack project for my personal website. Built as a monorepo for easy maintenance and development.
 
 ## Getting Started
 
-First, run the development server:
+First, after a clean clone, run:
+
+```bash
+npm install
+```
+
+To run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the running app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Debug the App
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+We can debug the app using vscode built in debugger.
+Just make sure proper `launch.json` file is present, and hold 3 configs for:
 
-## Learn More
+1. Debug server-side
+2. Debug client-side
+3. Debug full stack
 
-To learn more about Next.js, take a look at the following resources:
+To debug the server-side, run the first debug config (debug server-side). All the breakpoints and logs will be available throught the integrated debugger and terminal on vscode.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To debug the client-side, we need the server side to be running first, and run the second debug config (debug client-side). The breakpoints will be available to debut the client-side.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Run on Local Docker
 
-## Deploy on Vercel
+Build the image:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker build \
+--build-arg NEXT_PUBLIC_SUPABASE_URL=<value> \
+--build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY=<value> \
+-t posisiterakhir .
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run container:
+
+```bash
+docker run \
+  -e NEXT_PUBLIC_SUPABASE_URL=<value> \
+  -e NEXT_PUBLIC_SUPABASE_ANON_KEY=<value> \
+  -p 80:80 \
+  --name posisiterakhir
+  posisiterakhir
+```
