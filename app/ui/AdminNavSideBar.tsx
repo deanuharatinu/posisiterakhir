@@ -2,15 +2,12 @@
 
 import clsx from "clsx"
 import { usePathname } from "next/navigation"
+import { logout } from "../admin/(dashboard)/actions"
 
 const dashboardMenus = [
   {
     name: "Articles",
     link: "/admin/articles"
-  },
-  {
-    name: "User",
-    link: "/admin/users"
   }
 ]
 
@@ -29,7 +26,7 @@ export default function AdminNavSideBar() {
             {
               dashboardMenus.map((menu, index) => {
                 return (
-                  <li key={`${menu}-${index}`}>
+                  <li key={`${menu.name}-${index}`}>
                     <a
                       href={`${menu.link}`}
                       className={
@@ -45,6 +42,19 @@ export default function AdminNavSideBar() {
                 )
               })
             }
+
+            <li className="block h-[2px] bg-neutral-700 rounded-md my-3"></li>
+
+            <li>
+              <button
+                className="w-full px-4 py-2 text-base font-bold text-start hover:text-white rounded-lg hover:bg-neutral-600 transition-colors cursor-pointer"
+                onClick={async () => {
+                  await logout()
+                }}
+              >
+                Sign Out
+              </button>
+            </li>
           </ul>
         </div>
       </div>

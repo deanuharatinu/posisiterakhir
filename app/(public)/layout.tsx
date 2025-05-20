@@ -26,7 +26,7 @@ export default function PublicLayout({ children }: Readonly<{ children: React.Re
 
 function Content({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="flex-1 pt-32">
+    <div className="flex-1 pt-18 md:pt-32">
       <InnerContainer >
         {children}
       </InnerContainer>

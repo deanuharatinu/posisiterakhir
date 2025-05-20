@@ -1,5 +1,5 @@
 import ArticleItem from "./ArticleItem";
-import { fetchArticles } from "@/app/data/data";
+import { fetchArticles } from "@/app/lib/data";
 
 export default async function AdminArticles({ query, currentPage, limit }: { query: string, currentPage: number, limit: number }) {
   const offset = (currentPage - 1) * limit;

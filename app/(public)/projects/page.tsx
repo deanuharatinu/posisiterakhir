@@ -1,6 +1,6 @@
 // import data
 import { Metadata } from 'next';
-import { projects } from '../../data/static/projects';
+import { projects } from '../../lib/static/projects';
 import ProjectShowcase from './ProjectShowCase';
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 'use server'
 
-import { deleteArticleById } from "@/app/data/data"
+import { deleteArticleById } from "@/app/lib/data"
 import { revalidatePath } from "next/cache"
 
 export async function deleteArticle(id: string) {

@@ -1,26 +1,9 @@
-import { createClient } from "@/app/utils/supabase/server";
 import { formatTimestampToDate } from "../../utils/utils";
-import { Article as ArticleModel } from "@/app/data/models/article.model";
+import { Article as ArticleModel } from "@/app/lib/models/article.model";
+import { getArticles } from "./actions";
 
 export default async function Articles() {
-  const supabase = await createClient()
-
-  const { data, error } = await supabase
-    .from('articles')
-    .select()
-
-  if (error) {
-    console.log(error)
-  }
-
-  const articles: ArticleModel[] = (data?.map((article) => {
-    return {
-      title: article.title,
-      dateMillis: article.created_at,
-      content: article.content,
-      slug: article.slug
-    };
-  })) ?? [];
+  const articles = await getArticles()
 
   const isNotEmpty = (articles?.length ?? 0) > 0;
 
@@ -41,7 +24,6 @@ function Article({ article }: Readonly<{ article: ArticleModel }>) {
           <h2 className="text-base font-semibold tracking-tight text-zinc-100">
             <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl bg-zinc-800/50">
             </div>
-            {/* <a href="/articles/make-managing-dotfiles-a-breeze-with-stow"> */}
             <a href={`/articles/${article.slug}`}>
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
               <span className="relative z-10">{article.title}</span>
@@ -52,7 +34,7 @@ function Article({ article }: Readonly<{ article: ArticleModel }>) {
             <span className="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
               <span className="h-4 w-0.5 rounded-full bg-zinc-500"></span>
             </span>
-            {formatTimestampToDate(article.dateMillis)}
+            {formatTimestampToDate(article.createdAt)}
           </time>
 
           <p className="relative z-10 mt-2 text-sm/relaxed text-zinc-400">
@@ -67,7 +49,7 @@ function Article({ article }: Readonly<{ article: ArticleModel }>) {
           </div>
         </div>
         <time className="mt-1 hidden md:block relative z-10 order-first mb-3 items-center text-sm text-zinc-500" dateTime="2024-06-18">
-          {formatTimestampToDate(article.dateMillis)}
+          {formatTimestampToDate(article.createdAt)}
         </time>
       </article>
     </div>

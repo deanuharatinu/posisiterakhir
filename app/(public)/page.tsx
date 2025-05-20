@@ -2,13 +2,15 @@ import ResumeCard from "../ui/ResumeCard";
 import HomePageArticles from "../ui/HomePageArticles";
 
 // import data
-import { resumeData } from "../data/static/resume";
-import { articles } from "../data/static/articles"
+import { resumeData } from "../lib/static/resume";
 import Image from "next/image";
+import { fetchPublishedArticles } from "../lib/data";
 
-export default function Home() {
+export default async function Home() {
+  const articles = await fetchPublishedArticles(0, 3)
+
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col mt-14 md:mt-0">
       <section>
         <Image
           className="absolute -top-16 left w-[64px] aspect-square rounded-2xl object-cover"

@@ -9,7 +9,8 @@ export type ModalAction = {
   description?: string,
   positiveButton?: string,
   negativeButton?: string,
-  onPositiveClick?: () => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onPositiveClick?: (data?: any) => void
 };
 
 export const ModalContext = createContext<{
