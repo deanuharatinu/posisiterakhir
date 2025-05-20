@@ -12,7 +12,7 @@ export default async function DashboardLayout({ children }: Readonly<{ children:
 
   return (
     <div className="flex min-h-screen flex-row">
-      <div className="fixed md:w-[16rem]">
+      <div className="fixed md:w-[16rem] z-4">
         <AdminNavSideBar />
       </div>
 
