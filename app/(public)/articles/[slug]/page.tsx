@@ -1,27 +1,20 @@
-import { createClient } from "@/app/utils/supabase/server"
 import { notFound } from "next/navigation"
 import Article from "./Article"
+import { fetchArticleBySlug } from "@/app/lib/data"
 
 export const dynamic = 'force-dynamic'
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
 
-  const supabase = await createClient()
-  const { data, error } = await supabase
-    .from('articles')
-    .select()
-    .eq('published', true)
-    .eq('slug', slug)
-
-  if (error || data.length == 0) {
-    console.log(error)
+  const article = await fetchArticleBySlug(slug)
+  if (article == null) {
     notFound()
   }
 
   return (
     <div>
-      <Article />
+      <Article article={article} />
     </div>
   )
 }

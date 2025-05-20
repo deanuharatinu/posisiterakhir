@@ -88,8 +88,15 @@ export async function fetchArticleBySlug(slug: string) {
     return null
   }
 
-  const article: Article[] = data
-  return article[0]
+  return {
+    id: data[0].id ?? "",
+    title: data[0].title ?? "",
+    content: data[0].content ?? "",
+    createdAt: data[0].created_at ?? "",
+    updatedAt: data[0].updated_at ?? "",
+    published: data[0].published ?? false,
+  } as Article
+
 }
 
 export async function fetchPublishedArticles(offset: number, limit: number): Promise<Article[]> {
