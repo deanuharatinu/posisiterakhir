@@ -1,12 +1,12 @@
 import Link from "next/link"
-import { getArticle } from "./actions"
+import { fetchArticle } from "./actions"
 import Article from "./Article"
 
 export default async function Page(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params
   const slug = params.slug
 
-  const article = await getArticle(slug)
+  const article = await fetchArticle(slug)
 
   return (
     <div>

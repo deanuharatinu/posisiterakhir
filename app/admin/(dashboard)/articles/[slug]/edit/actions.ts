@@ -4,7 +4,7 @@ import { State } from "@/app/lib/actions"
 import { editArticleById, fetchArticleBySlug } from "@/app/lib/data"
 import { Article } from "@/app/lib/models/article.model"
 
-export async function getArticle(slug: string): Promise<Article> {
+export async function fetchArticle(slug: string): Promise<Article> {
   const result = await fetchArticleBySlug(slug)
 
   const article: Article = {
@@ -12,7 +12,7 @@ export async function getArticle(slug: string): Promise<Article> {
     title: result?.title ?? "",
     createdAt: result?.createdAt ?? "",
     content: result?.content ?? "",
-    slug: result?.slug ?? "",
+    slug: slug,
     published: result?.published ?? false,
   }
 

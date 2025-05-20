@@ -1,7 +1,4 @@
 import { Metadata } from "next";
-
-// import data
-import { articles } from "../../lib/static/articles"
 import Articles from "./Articles";
 
 export const metadata: Metadata = {
@@ -22,12 +19,9 @@ export default function Page() {
           <span className="text-xs">*ps: this page is still on development. expect a fake article :p</span>
         </p>
       </div>
-      {
-        articles &&
-        <div className="mt-16">
-          <Articles />
-        </div>
-      }
+      <div className="mt-16">
+        <Articles />
+      </div>
     </div >
   );
 }
