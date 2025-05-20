@@ -1,5 +1,5 @@
 import { fetchPublishedArticles } from "@/app/lib/data";
-import { formatTimestampToDate } from "../../utils/utils";
+import { formatTimestampToDate, getContentPreview } from "../../utils/utils";
 import { Article as ArticleModel } from "@/app/lib/models/article.model";
 
 export default async function Articles() {
@@ -36,7 +36,7 @@ function Article({ article }: Readonly<{ article: ArticleModel }>) {
           </time>
 
           <p className="relative z-10 mt-2 text-sm/relaxed text-zinc-400">
-            {article.content}
+            {getContentPreview(article.content ?? '')}
           </p>
 
           <div aria-hidden="true" className="relative z-10 mt-4 flex items-center text-sm font-medium text-cyan-500">

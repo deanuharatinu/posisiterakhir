@@ -14,7 +14,7 @@ export default function Article({ article }: { article: ArticleModel }) {
 
   return (
     <div className="flex -mt-6 md:-mt-14 justify-center">
-      <div className="relative flex flex-col xl:flex-row lg:max-w-3xl">
+      <div className="relative flex flex-col w-full xl:flex-row lg:max-w-3xl">
         <button
           onClick={handleBackClick}
           className="xl:absolute group w-9 xl:h-9 xl:-inset-x-20 xl:-inset-y-2 p-3 hover:ring-1 hover:ring-zinc-700 bg-zinc-800 rounded-3xl cursor-pointer transition-colors">
@@ -23,7 +23,7 @@ export default function Article({ article }: { article: ArticleModel }) {
           </svg>
         </button>
 
-        <div className="mt-10 xl:mt-0">
+        <div className="mt-10 xl:mt-0 xl:w-full">
           <div className="flex flex-row items-center">
             <div className="bg-neutral-700 w-0.5 rounded-2xl h-5"></div>
             <p className="text-neutral-500 ml-3">
